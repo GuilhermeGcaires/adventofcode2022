@@ -32,10 +32,7 @@ pub fn process_part2(input: &str) -> String {
         .chunks(3)
         .into_iter()
         .map(|chunk| { 
-            let first = chunk[0];
-            let second = chunk[1];
-            let third = chunk[2];
-            let common = first.chars().find(|c| second.contains(*c) && third.contains(*c)).unwrap();
+            let common = chunk[0].chars().find(|c| chunk[1].contains(*c) & chunk[2].contains(*c)).unwrap();
             letter_scores.get(&common).unwrap()
         }).sum::<usize>();
 
